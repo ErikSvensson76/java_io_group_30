@@ -5,6 +5,8 @@ import org.example.data.TextFileService;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * Hello world!
@@ -21,13 +23,27 @@ public class App
         String string = "Hello I/O";
         //TextFileService.writeString(textDestination,string);
 
+        /*
         try{
             String result = TextFileService.readFromTextFile(text);
             System.out.println(result);
         } catch (IOException e) {
             System.out.println(e);
         }
+        */
 
+        List<String> names = Arrays.asList(
+                "Michelle", "Tobias", "Martin", "Mattias", "Patrik", "Huiyi", "Negar", "Elmira", "Amer"
+        );
+        File fileNames = new File("text/names.txt");
+        //TextFileService.writeToFile(fileNames, names);
+
+        /*TextFileService.readFromFile(fileNames)
+                .forEach(System.out::println);
+        */
+
+        String location = "text/names.txt";
+        TextFileService.readFromFileLambdaStyle(location).forEach(System.out::println);
 
     }
 }
